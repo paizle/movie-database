@@ -65,7 +65,7 @@ export default function MainMenu(props) {
 					})}
 					
 					<ListItem key="genres" button selected={location.pathname.startsWith('/genres')}>
-						<GenresMenu setSubMenuItems={setSubMenuItems}  getGenres={props.getGenres} />
+						<GenresMenu setSubMenuItems={setSubMenuItems} />
 					</ListItem>
 					<ListItem key="certifications" button selected={location.pathname.startsWith('/certifications')}>
 						<div className="link">

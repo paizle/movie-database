@@ -1,9 +1,12 @@
 import React from 'react';
 
 import { Link } from "react-router-dom";
+import {GenreContext} from '../../context/genreContext';
 
 function GenresMenu(props) {
 	
+	const genreContext = React.useContext(GenreContext);
+
 	const [menuItems, setMenuItems] = React.useState(null);
 	
 	const handleHover = (event) => {
@@ -18,7 +21,7 @@ function GenresMenu(props) {
 	React.useEffect(() => {
 		(async () => {
 			if(!menuItems) {
-				const genres = await props.getGenres();
+				const genres = await genreContext.getGenres();
 				setMenuItems(renderMenuItems(genres));
 				console.log("genres" , genres);
 			}

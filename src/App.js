@@ -14,28 +14,13 @@ import Certifications from './components/views/Certifications';
 
 import MainMenu from './components/views/menu/MainMenu';
 
-import api from './MovieDbRestApi';
-
 function App() {
 
 	//const [configuration, setConfiguration] = React.useState(null);
 
 	const [pageSubtitle, setPageSubtitle] = React.useState("");
-	
-	const [genres, setGenres] = React.useState(null);
-	const getGenres = async () => {
-		// lazy getter
-		if(genres) {
-			return genres;
-		} else {
-			const data = api.getGenres();
-			setGenres(data);
-			return data;
-		}
-	}
 
 	React.useEffect(() => {
-	
 		/*
 		if(!configuration) {
 			(async()=>{
@@ -60,7 +45,7 @@ function App() {
 		<Router>
 			<header>
 				<h1>Movie Database App {pageSubtitle}</h1>
-				<MainMenu  getGenres={getGenres} />
+				<MainMenu />
 			</header>
 			<main>
 				<Switch>
@@ -68,7 +53,7 @@ function App() {
 						<Trending setPageSubtitle={setPageSubtitle} />
 					</Route>
 					<Route path="/genres/:id">
-						<Genres setPageSubtitle={setPageSubtitle} getGenres={getGenres} />
+						<Genres setPageSubtitle={setPageSubtitle} />
 					</Route>
 					<Route path="/certifications">
 						<Certifications setPageSubtitle={setPageSubtitle} />

@@ -3,14 +3,17 @@ import React from 'react';
 import {useParams} from 'react-router-dom';
 
 import api from '../../MovieDbRestApi';
+import {GenreContext} from '../context/genreContext';
 
 import MovieList from './MovieList';
 
 function Genres(props) {
 
+	const genreContext = React.useContext(GenreContext);
+
 	const { id } = useParams();
 
-	const {getGenres, setPageSubtitle} = props;
+	const {setPageSubtitle} = props;
 	
 	const [movies, setMovies] = React.useState(null);
 	React.useEffect(() => {
@@ -21,13 +24,11 @@ function Genres(props) {
 			console.log("movie by genre data", data);
 			setMovies(data.results);
 
-			const genres = await getGenres();
-
+			const genres = await genreContext.getGenres();
 			const name = genres.find((genre) => genre.id === genreId)['name'];
-
 			setPageSubtitle("- Genre: " + name);
 		})()
-	}, [id, getGenres, setPageSubtitle])
+	}, [id])
 
 
 	return (
