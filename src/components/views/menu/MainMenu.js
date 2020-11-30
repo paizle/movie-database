@@ -27,7 +27,7 @@ export default function MainMenu(props) {
 
 	return (
 		<>
-		<IconButton id="menu-button" onClick={e => setIsOpen(!isOpen)}>
+		<IconButton color="primary" id="menu-button" onClick={e => setIsOpen(!isOpen)}>
 			<Menu />
 		</IconButton>
 		<Drawer 
