@@ -33,7 +33,16 @@ header {
 		margin-left: .5em;
 		margin-right: 2em;
 	}
-	
+}
+
+footer {
+	display: flex;
+	div {
+		margin: 1em;
+	}
+	.tmdb-logo {
+		width: 200px;
+	}
 }
 
 #menu-button {

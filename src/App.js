@@ -55,10 +55,15 @@ function App() {
 				</Switch>
 			</main>
 			<footer>
-				<p>This product uses the TMDb API but is not endorsed or certified by TMDb.</p>
-				<p>
-					All movie data is provided courtesy of <a href="https://www.themoviedb.org" target="_blank" rel="noreferrer">www.themoviedb.org</a>
-				</p>
+				<div>
+					<img className="tmdb-logo" src="/tmdb-logo.svg" />
+				</div>
+				<div>
+					<p>This product uses the TMDb API but is not endorsed or certified by TMDb.</p>
+					<p>
+						All movie data is provided courtesy of <a href="https://www.themoviedb.org" target="_blank" rel="noreferrer">www.themoviedb.org</a>
+					</p>
+				</div>
 			</footer>
 		</Router>
 	);
