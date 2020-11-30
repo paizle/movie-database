@@ -6,6 +6,7 @@ import {
 	BrowserRouter as Router,
 	Switch,
 	Route,
+	Link
 } from "react-router-dom";
 
 import Trending from './components/views/Trending';
@@ -25,26 +26,19 @@ function App() {
 		if(!configuration) {
 			(async()=>{
 				const data = await api.getConfig();
-				console.log(data);
+				console.log('api configuration', data);
 				setConfiguration(data);
 			})();
 			
 		}
 		*/
 		
-		/*
-		(async()=> {
-			//const data = await api.getCertifications();
-			//console.log(certifications);
-			//setCertifications(data);
-		})();
-		*/
 	}, []);
 
 	return (
 		<Router>
 			<header>
-				<h1>Movie Database App {pageSubtitle}</h1>
+				<h1><Link to="/">Movie Database App</Link> {pageSubtitle}</h1>
 				<MainMenu />
 			</header>
 			<main>
